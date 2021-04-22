@@ -1,4 +1,4 @@
-package com.brian.kafka;
+package com.brian.demo;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +29,7 @@ public class KafkaDemoTest {
         KafkaTemplate<String, String> template = createTemplate();
         int count = 10000;
         while (count > 0) {
-            ProducerRecord record = new ProducerRecord<>("brian_t", UUID.randomUUID().toString(),
+            ProducerRecord<String, String> record = new ProducerRecord<>("brian_t", UUID.randomUUID().toString(),
                     "{" + UUID.randomUUID().toString() + ":" + UUID.randomUUID().toString() + "}");
             template.send(record);
             log.info("<><><><><> send message <><><><><>: " + record.value());
