@@ -29,7 +29,7 @@ public class BrianKafkaProducer {
     public void sendMessageWithCallback() {
         KafkaProducer<String, String> prod = new KafkaProducer<>(props);
 
-        for(int i =0 ;i<10;i++){
+        for(int i =0 ;i<1000;i++){
             prod.send(new ProducerRecord<>("brian_t", getStr(), getValue()), new Callback() {
 
                 @Override
@@ -48,6 +48,6 @@ public class BrianKafkaProducer {
     }
 
     private String getValue() {
-        return String.format("{{}:{}}", getStr(), getStr());
+        return String.format("{%s:%s}", getStr(), getStr());
     }
 }
