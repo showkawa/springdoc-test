@@ -6,12 +6,18 @@ import org.junit.Test;
 
 public class BrianKafkaProducerTest {
 
-    private BrianKafkaProducer brianKafkaProducer;
     
     @Test
     public void When_SendMessage_Expect_Callback() throws Exception {
-        brianKafkaProducer= new BrianKafkaProducer();
-        brianKafkaProducer.sendMessageWithCallback();
+        BrianKafkaProducer brianKafkaProducer1= new BrianKafkaProducer();
+        if(brianKafkaProducer1.initProducer()){
+            brianKafkaProducer1.sendMessageWithCallback();
+        }
+
+        BrianKafkaProducer brianKafkaProducer2= new BrianKafkaProducer();
+        if(brianKafkaProducer2.initProducer()){
+            brianKafkaProducer2.sendMessageWithCallback();
+        }
     }
     
 }
