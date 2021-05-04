@@ -8,13 +8,7 @@ public class BrianKafkaConsumerTest {
     
     @Test
     public void When_GetMessage_Expect_Success() throws Exception {
-
-        BrianKafkaConsumer brianKafkaConsumer= new BrianKafkaConsumer();
-        brianKafkaConsumer.getMessage();
-        // Thread.sleep(1000);
-        // brianKafkaConsumer.stopConsumer();
-    
-
+        new BrianKafkaConsumer("BC-1001").getMessage();
     }
     
 }
