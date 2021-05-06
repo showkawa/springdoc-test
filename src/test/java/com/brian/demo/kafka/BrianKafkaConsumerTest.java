@@ -8,7 +8,9 @@ public class BrianKafkaConsumerTest {
     
     @Test
     public void When_GetMessage_Expect_Success() throws Exception {
-        new BrianKafkaConsumer("BC-1001").getMessage();
+        // new BrianKafkaConsumer("BC-1001").getMessageBySubscribe();
+        // new BrianKafkaConsumer("BC-1002").getMessageByAssign();
+        new BrianKafkaConsumer("BC-1003").getMessageWithRebalance();
     }
     
 }
