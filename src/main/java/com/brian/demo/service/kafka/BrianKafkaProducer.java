@@ -3,8 +3,6 @@ package com.brian.demo.service.kafka;
 import java.util.Properties;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -20,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class BrianKafkaProducer {
 
-    private final CountDownLatch cdl = new CountDownLatch(5);
+    private final CountDownLatch cdl = new CountDownLatch(500);
 
     private KafkaProducer<String, String> prod;
 
