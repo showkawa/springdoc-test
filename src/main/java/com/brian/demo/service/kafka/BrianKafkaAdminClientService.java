@@ -24,7 +24,7 @@ import org.apache.kafka.common.requests.DescribeLogDirsResponse.LogDirInfo;
 import org.springframework.stereotype.Component;
 
 
-@Component
+// @Component
 public class BrianKafkaAdminClientService {
     
     private AdminClient adminClient;
