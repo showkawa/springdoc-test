@@ -2,6 +2,7 @@ package com.brian.demo.controller;
 
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import com.brian.demo.tool.RedisUtil;
 
@@ -37,6 +38,33 @@ public class RedisKeyController {
         return new ResponseEntity<>(redisUtil.type(key), HttpStatus.OK);
     }
 
+    
+    @GetMapping("/redis/key/delete")
+    public ResponseEntity<Boolean> delete(String key){
+        redisUtil.delete(key);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/redis/key/unlink")
+    public ResponseEntity<Boolean> unlink(String key){
+        redisUtil.unlink(key);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
+
+    @GetMapping("/redis/key/expire")
+    public ResponseEntity<Boolean> expire(String key, long timeout, TimeUnit unit){
+        Boolean result = redisUtil.expire(key, timeout, unit);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @GetMapping("/redis/key/getExpire")
+    public ResponseEntity<Long> getExpire(String key){
+        Long expireTime = redisUtil.getExpire(key);
+        return new ResponseEntity<>(expireTime, HttpStatus.OK);
+    }
+
+
+    
 
 
 
