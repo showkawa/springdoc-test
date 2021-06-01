@@ -47,6 +47,24 @@ public class RedisUtil {
 	}
 
 	/**
+	 * 非阻塞删除key
+	 *  
+	 * @param key
+	 */
+	public void unlink(String key) {
+		redisTemplate.unlink(key);
+	}
+
+	/**
+	 * 非阻塞批量删除key
+	 * 
+	 * @param keys
+	 */
+	public void unlink(Collection<String> keys) {
+		redisTemplate.unlink(keys);
+	}
+
+	/**
 	 * 序列化key
 	 * 
 	 * @param key
