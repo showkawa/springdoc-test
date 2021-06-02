@@ -347,6 +347,17 @@ public class RedisUtil {
 	}
 
 	/**
+	 * 批量获取
+	 * 
+	 * @param maps
+	 */
+	public List<Object> multiSet(Collection<String> keys) {
+		return redisTemplate.opsForValue().multiGet(keys);
+	}
+
+	
+
+	/**
 	 * 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在
 	 * 
 	 * @param maps
