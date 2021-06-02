@@ -47,6 +47,24 @@ public class RedisUtil {
 	}
 
 	/**
+	 * 非阻塞删除key
+	 *  
+	 * @param key
+	 */
+	public void unlink(String key) {
+		redisTemplate.unlink(key);
+	}
+
+	/**
+	 * 非阻塞批量删除key
+	 * 
+	 * @param keys
+	 */
+	public void unlink(Collection<String> keys) {
+		redisTemplate.unlink(keys);
+	}
+
+	/**
 	 * 序列化key
 	 * 
 	 * @param key
@@ -285,6 +303,19 @@ public class RedisUtil {
 	}
 
 	/**
+	 * 只有在 key 存在时设置 key 的值
+	 * 
+	 * @param key
+	 * @param value
+	 * @return 之前已经存在返回false,不存在返回true
+	 */
+	public boolean setIfPresent(String key, String value) {
+		return redisTemplate.opsForValue().setIfPresent(key, value);
+	}
+
+
+
+	/**
 	 * 用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始
 	 * 
 	 * @param key
@@ -314,6 +345,17 @@ public class RedisUtil {
 	public void multiSet(Map<String, String> maps) {
 		redisTemplate.opsForValue().multiSet(maps);
 	}
+
+	/**
+	 * 批量获取
+	 * 
+	 * @param maps
+	 */
+	public List<Object> multiSet(Collection<String> keys) {
+		return redisTemplate.opsForValue().multiGet(keys);
+	}
+
+	
 
 	/**
 	 * 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在

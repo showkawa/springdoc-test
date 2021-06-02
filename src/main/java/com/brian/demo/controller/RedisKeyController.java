@@ -11,6 +11,7 @@ import org.springframework.data.redis.connection.DataType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,19 +40,19 @@ public class RedisKeyController {
     }
 
     
-    @GetMapping("/redis/key/delete")
+    @PostMapping("/redis/key/delete")
     public ResponseEntity<Boolean> delete(String key){
         redisUtil.delete(key);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
-    @GetMapping("/redis/key/unlink")
+    @PostMapping("/redis/key/unlink")
     public ResponseEntity<Boolean> unlink(String key){
         redisUtil.unlink(key);
         return new ResponseEntity<>(true, HttpStatus.OK);
     }
 
-    @GetMapping("/redis/key/expire")
+    @PostMapping("/redis/key/expire")
     public ResponseEntity<Boolean> expire(String key, long timeout, TimeUnit unit){
         Boolean result = redisUtil.expire(key, timeout, unit);
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -63,10 +64,4 @@ public class RedisKeyController {
         return new ResponseEntity<>(expireTime, HttpStatus.OK);
     }
 
-
-    
-
-
-
-   
 }
