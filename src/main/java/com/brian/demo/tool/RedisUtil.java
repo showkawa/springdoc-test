@@ -47,6 +47,14 @@ public class RedisUtil {
 	}
 
 	/**
+	 * 清空当前库的缓存
+	 */
+	public void flushdb() {
+		Set<String> keys = redisTemplate.keys("*");
+		redisTemplate.delete(keys);
+	}
+
+	/**
 	 * 非阻塞删除key
 	 *  
 	 * @param key
@@ -766,8 +774,8 @@ public class RedisUtil {
 	 * 
 	 * @param key
 	 * @param index
-	 *            index=0, 删除所有值等于value的元素; index>0, 从头部开始删除第一个值等于value的元素;
-	 *            index<0, 从尾部开始删除第一个值等于value的元素;
+	 *            index=0, 删除所有值等于value的元素; index>0, 从头部开始删除index个值等于value的元素;
+	 *            index<0, 从尾部开始删除index个值等于value的元素;
 	 * @param value
 	 * @return
 	 */
