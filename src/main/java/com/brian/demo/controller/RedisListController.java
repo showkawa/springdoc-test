@@ -35,7 +35,7 @@ public class RedisListController {
     }
 
     @PostMapping("/redis/list/rpoplpush")
-    public ResponseEntity<Object> rpoplpush(@RequestParam String sourceKey, @RequestParam ssString destinationKey){
+    public ResponseEntity<Object> rpoplpush(@RequestParam String sourceKey, @RequestParam String destinationKey){
         return new ResponseEntity<>(redisUtil.lRightPopAndLeftPush(sourceKey, destinationKey), HttpStatus.OK);
     }
 

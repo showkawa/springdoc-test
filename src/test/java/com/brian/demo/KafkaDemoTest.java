@@ -10,6 +10,7 @@ import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -22,6 +23,7 @@ import org.springframework.kafka.listener.MessageListener;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+@Ignore
 public class KafkaDemoTest {
 
     @Test

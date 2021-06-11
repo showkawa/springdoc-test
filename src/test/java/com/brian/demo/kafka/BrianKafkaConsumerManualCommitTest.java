@@ -2,8 +2,10 @@ package com.brian.demo.kafka;
 
 import com.brian.demo.service.kafka.BrianKafkaConsumerManualCommit;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class BrianKafkaConsumerManualCommitTest {
     
     @Test
