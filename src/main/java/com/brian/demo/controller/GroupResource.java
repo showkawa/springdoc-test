@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import com.brian.demo.controller.errors.BadRequestAlertException;
 import com.brian.demo.service.GroupService;
 import com.brian.demo.service.dto.GroupDTO;
 

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * A Entry.
@@ -20,8 +21,7 @@ public class Entry implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @NotNull
     @Size(max = 50)
@@ -37,11 +37,11 @@ public class Entry implements Serializable {
     private String entryContent;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

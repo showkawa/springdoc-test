@@ -1,6 +1,9 @@
 package com.brian.demo.service.mapper;
 
 
+
+import java.util.UUID;
+
 import com.brian.demo.domain.Group;
 import com.brian.demo.service.dto.GroupDTO;
 
@@ -14,7 +17,7 @@ public interface GroupMapper extends EntityMapper<GroupDTO, Group> {
 
 
 
-    default Group fromId(Long id) {
+    default Group fromId(UUID id) {
         if (id == null) {
             return null;
         }

@@ -4,7 +4,7 @@ package com.brian.demo.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,8 +26,10 @@ public class EntryService {
 
     private final Logger log = LoggerFactory.getLogger(EntryService.class);
 
+    @Autowired
     private final EntryRepository entryRepository;
 
+    @Autowired
     private final EntryMapper entryMapper;
 
     public EntryService(EntryRepository entryRepository, EntryMapper entryMapper) {

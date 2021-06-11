@@ -1,5 +1,7 @@
 package com.brian.demo.service.mapper;
 
+import java.util.UUID;
+
 import com.brian.demo.domain.Entry;
 import com.brian.demo.service.dto.EntryDTO;
 
@@ -13,7 +15,7 @@ public interface EntryMapper extends EntityMapper<EntryDTO, Entry> {
 
 
 
-    default Entry fromId(Long id) {
+    default Entry fromId(UUID id) {
         if (id == null) {
             return null;
         }

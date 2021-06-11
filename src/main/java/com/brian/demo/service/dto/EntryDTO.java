@@ -2,13 +2,14 @@ package com.brian.demo.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * A DTO for the {@link com.szhuangl.app.domain.Entry} entity.
  */
 public class EntryDTO implements Serializable {
     
-    private Long id;
+    private UUID id;
 
     @NotNull
     @Size(max = 50)
@@ -21,11 +22,11 @@ public class EntryDTO implements Serializable {
     private String entryContent;
 
     
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

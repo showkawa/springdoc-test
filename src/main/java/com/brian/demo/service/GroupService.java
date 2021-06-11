@@ -4,7 +4,7 @@ package com.brian.demo.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -26,8 +26,10 @@ public class GroupService {
 
     private final Logger log = LoggerFactory.getLogger(GroupService.class);
 
+    @Autowired
     private final GroupRepository groupRepository;
 
+    @Autowired
     private final GroupMapper groupMapper;
 
     public GroupService(GroupRepository groupRepository, GroupMapper groupMapper) {
