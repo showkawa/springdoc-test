@@ -8,6 +8,13 @@ This project only use to demo and raise the issue for other open soucre.
 
 
 
+### 2. Set the transation (JPA with Redis)
+
+
+
+
+
+
 
 
 

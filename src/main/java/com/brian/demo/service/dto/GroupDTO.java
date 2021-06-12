@@ -2,7 +2,9 @@ package com.brian.demo.service.dto;
 
 
 import javax.validation.constraints.*;
+
 import java.io.Serializable;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -16,7 +18,8 @@ public class GroupDTO implements Serializable {
     @Size(max = 50)
     private String groupName;
 
-    private String groupContent;
+
+    private Map<String,Object> groupContent;
 
     
     public UUID getId() {
@@ -35,11 +38,11 @@ public class GroupDTO implements Serializable {
         this.groupName = groupName;
     }
 
-    public String getGroupContent() {
+    public Map<String,Object> getGroupContent() {
         return groupContent;
     }
 
-    public void setGroupContent(String groupContent) {
+    public void setGroupContent(Map<String,Object> groupContent) {
         this.groupContent = groupContent;
     }
 
@@ -63,10 +66,8 @@ public class GroupDTO implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "GroupDTO{" +
-            "id=" + getId() +
-            ", groupName='" + getGroupName() + "'" +
-            ", groupContent='" + getGroupContent() + "'" +
-            "}";
+        return "{'id':'" + getId()  + "'" +
+            ", 'groupName':'" + getGroupName() + "'" +
+            ", 'groupContent':" + getGroupContent() + "}";
     }
 }
