@@ -10,6 +10,17 @@ This project only use to demo and raise the issue for other open soucre.
 
 ### 2. Set the transation (JPA with Redis)
 
+https://github.com/showkawa/springdoc-test/blob/main/src/main/java/com/brian/demo/config/RedisConfig.java
+
+```
+    rediTemplate.setEnableTransactionSupport(true);
+
+    @Bean
+    public PlatformTransactionManager transactionManager(DataSource dataSource) throws SQLException {
+        return new DataSourceTransactionManager(dataSource);
+    }        
+```
+
 
 
 
