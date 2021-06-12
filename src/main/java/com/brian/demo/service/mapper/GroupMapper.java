@@ -14,15 +14,4 @@ import org.mapstruct.*;
  */
 @Mapper(componentModel = "spring", uses = {})
 public interface GroupMapper extends EntityMapper<GroupDTO, Group> {
-
-
-
-    default Group fromId(UUID id) {
-        if (id == null) {
-            return null;
-        }
-        Group group = new Group();
-        group.setId(id);
-        return group;
-    }
 }
