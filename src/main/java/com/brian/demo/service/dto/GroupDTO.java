@@ -66,10 +66,8 @@ public class GroupDTO implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "GroupDTO{" +
-            "id=" + getId() +
-            ", groupName='" + getGroupName() + "'" +
-            ", groupContent='" + getGroupContent() + "'" +
-            "}";
+        return "{'id':'" + getId()  + "'" +
+            ", 'groupName':'" + getGroupName() + "'" +
+            ", 'groupContent':" + getGroupContent() + "}";
     }
 }

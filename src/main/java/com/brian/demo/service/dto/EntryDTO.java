@@ -2,6 +2,7 @@ package com.brian.demo.service.dto;
 
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -19,7 +20,7 @@ public class EntryDTO implements Serializable {
     @Size(max = 50)
     private String entryName;
 
-    private String entryContent;
+    private Map<String,Object> entryContent;
 
     
     public UUID getId() {
@@ -46,11 +47,11 @@ public class EntryDTO implements Serializable {
         this.entryName = entryName;
     }
 
-    public String getEntryContent() {
+    public Map<String,Object> getEntryContent() {
         return entryContent;
     }
 
-    public void setEntryContent(String entryContent) {
+    public void setEntryContent(Map<String,Object> entryContent) {
         this.entryContent = entryContent;
     }
 

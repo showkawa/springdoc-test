@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +25,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * REST controller for managing {@link com.szhuangl.app.domain.Group}.
@@ -108,7 +108,7 @@ public class GroupResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the groupDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/groups/{id}")
-    public ResponseEntity<GroupDTO> getGroup(@PathVariable Long id) {
+    public ResponseEntity<GroupDTO> getGroup(@PathVariable UUID id) {
         log.debug("REST request to get Group : {}", id);
         Optional<GroupDTO> groupDTO = groupService.findOne(id);
         return ResponseUtil.wrapOrNotFound(groupDTO);
@@ -121,7 +121,7 @@ public class GroupResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/groups/{id}")
-    public ResponseEntity<Void> deleteGroup(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteGroup(@PathVariable UUID id) {
         log.debug("REST request to delete Group : {}", id);
         groupService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
