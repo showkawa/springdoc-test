@@ -8,6 +8,8 @@ import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.ZSetOperations.TypedTuple;
 import org.springframework.stereotype.Component;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +21,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * RedisUtil
  */
+@Slf4j
 @Component
 public class RedisUtil {
 
@@ -224,6 +227,12 @@ public class RedisUtil {
 	 * @return
 	 */
 	public Object get(String key) {
+		redisTemplate.getClientList().forEach(client -> {
+		 String clientName = client.getName();
+		 String port = client.getAddressPort();
+		 Long id = client.getDatabaseId();
+		 log.info("<><><><><><> Redis request client info <><><><><><><>: {}/{}/{}", clientName, port, id);
+		});
 		return redisTemplate.opsForValue().get(key);
 	}
 
