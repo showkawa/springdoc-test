@@ -7,37 +7,46 @@ import org.junit.Test;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 冒泡排序
+ * 插入排序
+ * 从后向前比较
  * 时间复杂度 0(N^2)
  */
 @Slf4j
-public class Alg002_BubbleSort {
-
-
+public class Alg003_InsertionSort {
+    
     @Test
     public void test(){
         int[] init = generateArr();
 
         int[] arr1 =  init;
-        bubbleSorted(arr1);
+        insertSorted(arr1);
         log.info("brianhaung:{}",arr1);
 
         int[] arr2 =  init;
         comparator(arr2);
         log.info("comparator:{}", arr2);
+        
+        for(int k=0;k<arr1.length;k++){
+            if(arr1[k] != arr2[k]){
+                log.info("isEquals:false");
+                break;
+            }
+        }
+        log.info("isEquals:true");
+        
     }
 
 
-    private void bubbleSorted(int[] arr){
+    private void insertSorted(int[] arr){
         if(arr == null || arr.length <=1){
             return;
         }
         // i ~ N-1
-        for(int i=arr.length-1;i>0;i--){
-            // i ~ N-1 set max to the end of arr
-            for(int j=0;j<i;j++){
-                if(arr[j+1] < arr[j]) {
-                    swap(arr ,j+1,j);
+        for(int i=0;i<arr.length;i++){
+            // i ~ N-1 set min to the left
+            for(int j=i;j>0;j--){
+                if(arr[j-1] > arr[j]) {
+                    swap(arr ,j-1,j);
                 } 
             }
             
@@ -66,5 +75,4 @@ public class Alg002_BubbleSort {
         return arr;
 
     }
-
 }
