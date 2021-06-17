@@ -41,9 +41,10 @@ public class Alg003_InsertionSort {
         if(arr == null || arr.length <=1){
             return;
         }
-        // i ~ N-1
+        // 0 ~1 compare and swap
+        // 0 ~2 compare and swap
         for(int i=0;i<arr.length;i++){
-            // i ~ N-1 set min to the left
+            // i ~ N-1 compare and swap
             for(int j=i;j>0;j--){
                 if(arr[j-1] > arr[j]) {
                     swap(arr ,j-1,j);
