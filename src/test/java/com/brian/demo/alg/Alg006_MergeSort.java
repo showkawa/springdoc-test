@@ -8,7 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * 归并排序
- * 复杂度T(N) = 2* T(N/2) + O(N) => NlogN
+ * 复杂度T(N) = 2* T(N/2) + O(N) 
+ * a=2 b=2 d=1, log(2,2)=1
+ * => NlogN
  */
 @Slf4j
 public class Alg006_MergeSort {
