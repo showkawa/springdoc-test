@@ -6,7 +6,13 @@ import org.junit.Test;
 
 import lombok.extern.slf4j.Slf4j;
 
-
+/**
+ * 
+ * 递归排序
+ * 复杂度T(N) = 2* T(N/2) + O(1) 
+ *  a=2 b=2 d=0, log(2,2) > 0
+ * => N
+ */
 @Slf4j
 public class Alg005_SearchMax {
 
