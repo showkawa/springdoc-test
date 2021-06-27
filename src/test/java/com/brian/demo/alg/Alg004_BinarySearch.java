@@ -8,6 +8,10 @@ import org.junit.Test;
 import lombok.extern.slf4j.Slf4j;
 
 
+/**
+ * 二分查找
+ * 复杂度logN
+ */
 @Slf4j
 public class Alg004_BinarySearch {
     
